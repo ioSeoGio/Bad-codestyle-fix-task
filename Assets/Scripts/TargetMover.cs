@@ -12,6 +12,13 @@ public class TargetMover : MonoBehaviour
             StopCoroutine(_coroutine);
         }
 
+        Vector3 direction = (target.position - transform.position).normalized;
+
+        if (direction != Vector3.zero)
+        {
+            transform.forward = direction;
+        }
+
         _coroutine = StartCoroutine(MoveCoroutine(target, speed));
     }
 
@@ -21,7 +28,7 @@ public class TargetMover : MonoBehaviour
 
         while (enabled)
         {
-            transform.Translate((target.position - transform.position).normalized * speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
             yield return wait;
         }

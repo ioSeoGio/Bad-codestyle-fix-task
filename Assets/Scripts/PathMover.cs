@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(TargetMover))]
 public class PathMover : MonoBehaviour
 {
-    [SerializeField] private List<Transform> _arrayPlaces;
+    [SerializeField] private List<Transform> _places;
     [SerializeField] private float _pointAchievementRange;
     [SerializeField] private float _speed;
 
@@ -14,22 +14,22 @@ public class PathMover : MonoBehaviour
     private void Awake()
     {
         _targetMover = GetComponent<TargetMover>();
-        _targetMover.Move(_arrayPlaces[_currentPlaceKey].transform, _speed);
+        _targetMover.Move(_places[_currentPlaceKey].transform, _speed);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        Transform currentPlace = _arrayPlaces[_currentPlaceKey];
+        Transform currentPlace = _places[_currentPlaceKey];
 
         if (Vector3Extension.IsInRange(transform.position, currentPlace.transform.position, _pointAchievementRange))
         {
             SwitchToNextPlace();
-            _targetMover.Move(_arrayPlaces[_currentPlaceKey].transform, _speed);
+            _targetMover.Move(_places[_currentPlaceKey].transform, _speed);
         }
     }
 
     private void SwitchToNextPlace()
     {
-        _currentPlaceKey = ++_currentPlaceKey % _arrayPlaces.Count;
+        _currentPlaceKey = ++_currentPlaceKey % _places.Count;
     }
 }

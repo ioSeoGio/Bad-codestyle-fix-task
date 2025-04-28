@@ -555,7 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640a83ed327e3f84d80e19e6c7ea7327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arrayPlaces:
+  _places:
   - {fileID: 1236635062}
   - {fileID: 1438534072}
   - {fileID: 1256593180}
@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootForce: 35
-  _prefab: {fileID: -3907796893971395568, guid: 88b86bdb83a165348b5f78b47b157d8c, type: 3}
+  _prefab: {fileID: 7191474410303206173, guid: 88b86bdb83a165348b5f78b47b157d8c, type: 3}
   _shootDelay: 1
   _objectToShoot: {fileID: 1566063088}
 --- !u!54 &2115860041

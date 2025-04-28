@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletsShooter : MonoBehaviour
 {
     [SerializeField] private float _shootForce;
-    [SerializeField] private Rigidbody _prefab;
+    [SerializeField] private Bullet _prefab;
     [SerializeField] private float _shootDelay;
     [SerializeField] private Transform _objectToShoot;
     
@@ -20,11 +20,9 @@ public class BulletsShooter : MonoBehaviour
 
         while (enabled)
         {
-            Vector3 vector3direction = (_objectToShoot.position - transform.position).normalized;
-            Rigidbody newBullet = Instantiate(_prefab, transform.position + vector3direction, Quaternion.identity);
-
-            newBullet.transform.up = vector3direction;
-            newBullet.velocity = vector3direction * _shootForce;
+            Vector3 direction = (_objectToShoot.position - transform.position).normalized;
+            Bullet newBullet = Instantiate(_prefab, transform.position + direction, Quaternion.identity);
+            newBullet.AddForce(direction, _shootForce);
 
             yield return wait;
         }
