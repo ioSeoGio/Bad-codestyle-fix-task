@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -10,16 +9,9 @@ public class BulletsShooter : MonoBehaviour
     [SerializeField] private float _shootDelay;
     [SerializeField] private Transform _objectToShoot;
     
-    private Coroutine _coroutine;
-
     private void OnEnable()
     {
-        _coroutine = StartCoroutine(ShootingWorker());
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine(_coroutine);
+        StartCoroutine(ShootingWorker());
     }
 
     private IEnumerator ShootingWorker()

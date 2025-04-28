@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TargetMover : MonoBehaviour
@@ -27,10 +25,5 @@ public class TargetMover : MonoBehaviour
 
             yield return wait;
         }
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine(_coroutine);
     }
 }

@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(TargetMover))]
 public class PathMover : MonoBehaviour
@@ -32,11 +30,6 @@ public class PathMover : MonoBehaviour
 
     private void SwitchToNextPlace()
     {
-        _currentPlaceKey++;
-
-        if (_currentPlaceKey == _arrayPlaces.Count)
-        {
-            _currentPlaceKey = 0;
-        }
+        _currentPlaceKey = ++_currentPlaceKey % _arrayPlaces.Count;
     }
 }
